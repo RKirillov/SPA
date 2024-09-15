@@ -2,6 +2,9 @@ import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+// Import the logo from the assets folder
+import logo from './assets/logo.png';
+
 function App() {
   const handleVideoClick = () => {
     window.location.href = 'https://ya.ru/'; // Redirect to a different URL on video click
@@ -9,10 +12,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* Header with Logotype */}
+      {/* Header with Logotype from the public folder */}
       <header className="header">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" // Example logo URL
+          src={logo}   // Use the logo from the public folder
           alt="Logo"
           className="logo"
         />
