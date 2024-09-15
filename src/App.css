@@ -1,38 +1,66 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* General styling */
+body, html, #root, .App {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+/* Header styling with logo */
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+.logo {
+  height: 50px;
+}
+
+/* Promo box styling (2.5 times bigger and centered over video, overlapping it) */
+.promo-box {
+  position: absolute;
+  top: 50%; /* Center vertically relative to video */
+  left: calc(37%); /* Move to the center of the video, which is aligned to the right */
+  transform: translate(-50%, -50%); /* Fully center over the video */
+  background-color: pink;
+  padding: 50px; /* 2.5 times bigger padding */
+  width: 375px; /* 2.5 times bigger width */
   color: white;
+  text-align: center;
+  font-size: 45px; /* Increase font size accordingly */
+  border-radius: 5px;
+  z-index: 3; /* Ensure the promo box is above the video */
 }
 
-.App-link {
-  color: #61dafb;
+/* Video container styling */
+.video-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end; /* Align video to the right */
+  align-items: center;
+  position: relative;
+  padding-bottom: 60px; /* Prevent overlap with footer */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.video {
+  max-height: 80%; /* Video occupies 80% of the screen height */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  z-index: 1; /* Ensure video is behind the promo box */
+}
+
+/* Footer styling */
+.footer {
+  padding: 10px;
+  background-color: #f0f0f0;
+  text-align: center;
+  font-size: 14px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }

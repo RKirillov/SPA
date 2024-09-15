@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
+  const handleVideoClick = () => {
+    window.location.href = 'https://ya.ru/'; // Redirect to a different URL on video click
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      {/* Header with Logotype */}
+      <header className="header">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png" // Example logo URL
+          alt="Logo"
+          className="logo"
+        />
       </header>
+
+      {/* Promo text */}
+      <div className="promo-box">
+        <p>Promo Text Goes Here</p>
+      </div>
+
+      {/* Video Section */}
+      <div className="video-container">
+        <video
+          className="video"
+          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          autoPlay
+          loop
+          muted
+          onClick={handleVideoClick}
+        />
+      </div>
+
+      {/* Footer */}
+      <footer className="footer">
+        <p>Some Footer Text Here</p>
+      </footer>
     </div>
   );
 }
