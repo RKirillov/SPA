@@ -5,6 +5,7 @@ body, html, #root, .App {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Prevent scrollbars */
 }
 
 /* Header styling with logo */
@@ -19,39 +20,41 @@ body, html, #root, .App {
   height: 50px;
 }
 
-/* Promo box styling (2.5 times bigger and centered over video, overlapping it) */
+/* Promo box styling */
 .promo-box {
   position: absolute;
-  top: 50%; /* Center vertically relative to video */
-  left: calc(37%); /* Move to the center of the video, which is aligned to the right */
-  transform: translate(-50%, -50%); /* Fully center over the video */
+  top: 50%;
+  left: calc(37%);
+  transform: translate(-50%, -50%);
   background-color: pink;
-  padding: 50px; /* 2.5 times bigger padding */
-  width: 375px; /* 2.5 times bigger width */
+  padding: 50px;
+  width: 375px;
   color: white;
   text-align: center;
-  font-size: 45px; /* Increase font size accordingly */
+  font-size: 45px;
   border-radius: 5px;
-  z-index: 3; /* Ensure the promo box is above the video */
+  z-index: 3;
 }
 
 /* Video container styling */
 .video-container {
-  flex: 1;
+  flex-grow: 1;
   display: flex;
   justify-content: flex-end; /* Align video to the right */
   align-items: center;
-  position: relative;
-  padding-bottom: 60px; /* Prevent overlap with footer */
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
+/* Video styling */
 .video {
-  max-height: 80%; /* Video occupies 80% of the screen height */
+  max-width: 100%; /* Restrict video width to 100% of the container */
+  max-height: 80vh; /* Limit video height to 80% of the viewport height */
   width: auto;
   height: auto;
-  object-fit: contain;
+  object-fit: contain; /* Maintain aspect ratio */
   cursor: pointer;
-  z-index: 1; /* Ensure video is behind the promo box */
+  z-index: 1;
 }
 
 /* Footer styling */
@@ -61,6 +64,8 @@ body, html, #root, .App {
   text-align: center;
   font-size: 14px;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
+  box-sizing: border-box;
+  height: 60px; /* Fixed height for footer */
 }

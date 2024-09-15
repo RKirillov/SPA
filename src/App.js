@@ -1,11 +1,41 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Import the logo from the assets folder
 import logo from './assets/logo.png';
+import video from './assets/BigBuckBunny_.mp4';
 
 function App() {
+  // UseEffect hook to add zoom prevention
+  useEffect(() => {
+    // Prevent zoom via Ctrl + +/- or mouse wheel on desktop
+    const preventZoom = (event) => {
+      if (event.ctrlKey && (event.key === '+' || event.key === '-' || event.type === 'wheel')) {
+        event.preventDefault();
+      }
+    };
+
+    // Prevent pinch zooming on mobile
+    const preventPinchZoom = (event) => {
+      if (event.touches && event.touches.length > 1) {
+        event.preventDefault();
+      }
+    };
+
+    // Add event listeners
+    window.addEventListener('keydown', preventZoom);
+    window.addEventListener('wheel', preventZoom, { passive: false });  // Handle zoom via mouse wheel
+    window.addEventListener('touchmove', preventPinchZoom, { passive: false });
+
+    // Clean up event listeners on component unmount
+    return () => {
+      window.removeEventListener('keydown', preventZoom);
+      window.removeEventListener('wheel', preventZoom);
+      window.removeEventListener('touchmove', preventPinchZoom);
+    };
+  }, []);
+
   const handleVideoClick = () => {
     window.location.href = 'https://ya.ru/'; // Redirect to a different URL on video click
   };
@@ -30,7 +60,7 @@ function App() {
       <div className="video-container">
         <video
           className="video"
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          src={video}  // Use the imported video file
           autoPlay
           loop
           muted
