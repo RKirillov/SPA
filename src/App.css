@@ -82,12 +82,15 @@ body, html, #root, .App {
   }
 
   .video-container {
-    justify-content: center; /* Center the video on mobile */
+    flex-grow: 1; /* Allow the video to take up the remaining space */
+    display: flex;
+    justify-content: center; /* Center the video horizontally */
+    align-items: center; /* Center the video vertically */
     padding: 10px;
-    margin-bottom: 20px; /* Add space between video and footer on mobile */
+    height: calc(100vh - 120px); /* Fill the space between logo and footer */
   }
 
   .video {
-    max-height: 60vh; /* Reduce video size to create more space */
+    max-height: 60vh; /* Adjust video size for mobile */
   }
 }
