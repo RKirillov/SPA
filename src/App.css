@@ -20,11 +20,11 @@ body, html, #root, .App {
   height: 50px;
 }
 
-/* Promo box styling */
+/* Promo box styling for desktop */
 .promo-box {
   position: absolute;
   top: 50%;
-  left: calc(37%);
+  left: calc(31%);
   transform: translate(-50%, -50%);
   background-color: pink;
   padding: 50px;
@@ -40,7 +40,7 @@ body, html, #root, .App {
 .video-container {
   flex-grow: 1;
   display: flex;
-  justify-content: flex-end; /* Align video to the right */
+  justify-content: flex-end; /* Align video to the right on desktop */
   align-items: center;
   padding: 0 10px;
   box-sizing: border-box;
@@ -68,4 +68,19 @@ body, html, #root, .App {
   bottom: 0;
   box-sizing: border-box;
   height: 60px; /* Fixed height for footer */
+}
+
+/* Media query for mobile devices (screens smaller than 768px) */
+@media only screen and (max-width: 768px) {
+  .promo-box {
+    position: static; /* Remove absolute positioning */
+    margin-top: 20px; /* Space between the video and promo box */
+    width: 90%; /* Make promo box responsive */
+    padding: 20px; /* Smaller padding */
+    font-size: 24px; /* Reduce font size */
+  }
+
+  .video-container {
+    justify-content: center; /* Center the video on mobile devices */
+  }
 }
