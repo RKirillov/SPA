@@ -40,7 +40,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>Some Footer Text Here</p>
+        <p>Some Footer Text Here!</p>
       </footer>
     </div>
   );
