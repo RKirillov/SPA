@@ -22,7 +22,7 @@ body, html, #root, .App {
 .promo-box {
   position: absolute;
   top: 50%;
-  left: calc(31%);
+  left: calc(37%);
   transform: translate(-50%, -50%);
   background-color: pink;
   padding: 50px;
@@ -41,6 +41,7 @@ body, html, #root, .App {
   justify-content: flex-end; /* Align video to the right on desktop */
   align-items: center;
   padding: 0 10px;
+  margin-bottom: 20px; /* Add margin to push the video up */
   box-sizing: border-box;
 }
 
@@ -72,7 +73,7 @@ body, html, #root, .App {
 @media only screen and (max-width: 768px) {
   .promo-box {
     position: relative; /* No absolute positioning on mobile */
-    margin: 10px 0; /* Add space above and below */
+    margin: 10px 0; /* Space between the video and promo box */
     width: 90%; /* Adjust size to fit smaller screens */
     padding: 20px; /* Smaller padding for mobile */
     font-size: 24px; /* Adjust font size */
@@ -88,5 +89,6 @@ body, html, #root, .App {
   .video-container {
     justify-content: center; /* Center the video on mobile */
     padding: 10px; /* Adjust padding */
+    margin-bottom: 20px; /* Add space between the video and footer */
   }
 }
